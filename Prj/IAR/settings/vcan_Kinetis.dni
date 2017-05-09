@@ -9,7 +9,7 @@ TriggerName=main
 LimitSize=0
 ByteLimit=50
 [DebugChecksum]
-Checksum=-1937523734
+Checksum=-2060412843
 [Exceptions]
 StopOnUncaught=_ 0
 StopOnThrow=_ 0
@@ -47,10 +47,15 @@ Fmt1=zb_imgarr_t-j	3	0
 [watch_formats]
 Fmt0={W}1:S_final_j	3	0
 Fmt1={W}1:S_start_j	3	0
-Fmt2={W}1:kuandu	3	0
-Fmt3={W}1:kuandu_last	3	0
-Fmt4={W}1:n_bj_l	3	0
-Fmt5={W}1:tmpj	3	0
+Fmt2={W}1:chuizhi_flag	3	0
+Fmt3={W}1:f_l_3	3	0
+Fmt4={W}1:f_r_3	3	0
+Fmt5={W}1:flag	3	0
+Fmt6={W}1:kuandu	3	0
+Fmt7={W}1:kuandu_last	3	0
+Fmt8={W}1:leixing_flag	3	0
+Fmt9={W}1:n_bj_l	3	0
+Fmt10={W}1:tmpj	3	0
 [SWOTraceWindow]
 PcSampling=0
 InterruptLogs=0

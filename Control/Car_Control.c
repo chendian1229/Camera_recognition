@@ -97,7 +97,7 @@ void Car_Control(int16 MeasuredDir,int16 TargetDir,float TargetSpeed)
   
   
   //直立pwm
-  pwm_common = (int16)( -Angle_PID( angle_clhd+4.5 , 0 ) );
+  pwm_common = (int16)( -Angle_PID( angle_clhd-5.5 , 0 ) );
   
   
   //方向pwm

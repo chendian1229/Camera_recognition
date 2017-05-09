@@ -759,6 +759,12 @@
       <file>
         <name>$PROJ_DIR$\..\..\Image\panduan_sdlx\panduan_sdlx.h</name>
       </file>
+      <file>
+        <name>$PROJ_DIR$\..\..\Image\panduan_sdlx\UART_LCD.c</name>
+      </file>
+      <file>
+        <name>$PROJ_DIR$\..\..\Image\panduan_sdlx\UART_LCD.h</name>
+      </file>
     </group>
     <group>
       <name>small_func</name>
@@ -834,12 +840,6 @@
     </file>
     <file>
       <name>$PROJ_DIR$\..\..\Lib\lcd_draw_line.h</name>
-    </file>
-    <file>
-      <name>$PROJ_DIR$\..\..\Lib\UART_LCD.c</name>
-    </file>
-    <file>
-      <name>$PROJ_DIR$\..\..\Lib\UART_LCD.h</name>
     </file>
   </group>
 </project>

@@ -15,7 +15,7 @@ void ChouQu_ErZhi(uint8 gray[][IMG_W_YS],uint8 yuzhi,uint8 binarized[][IMG_W_USE
   /*图像上垂直找跳变沿（i_f_edge_cz.c）*/
   uint8    f__edge_cz_czjdbxs(uint8 line[][IMG_W_USED],uint8 start_i,uint8 final_i);
   uint8    f__edge_cz_cktdbqvi(uint8 line[][IMG_W_USED],uint8 position_j,uint8 start_i);
-  uint8    f__edge_cz_ry(uint8 line[][IMG_W_USED],uint8 row,uint8 start_i,uint8 final_i);
+
 
   /*图像上水平找跳变沿（i_f_edge_sp.c）*/
   void     f__edge_sp_czj(uint8 line[],uint8 range,uint8 *flag_l,uint8 *left,uint8 *flag_r,uint8 *right);

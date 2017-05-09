@@ -79,31 +79,32 @@ void main()
     mt9v032_finish_flag = 0;
     
     //超速保护
-    Over_Speed_Protect(450);
+    Over_Speed_Protect(300);
     
     //图像裁剪 二值化
     ChouQu_ErZhi(image_gray,YuZhi,image_binarized);
     
 //    /***************提取中线算法开始***************/
-    SaiDaoLeiXing =  pdsdlx(image_binarized);
-    
-    extern uint8 flg_msycsz;               //十字补线程序
-    if( (SaiDaoLeiXing==ShiZi)&&(SaiDaoLeiXing!=SaiDaoLeiXing_Last) )
-    {
-      flg_msycsz=0;
-    }
-    
-    switch( SaiDaoLeiXing )
-    {
-      case ZhiDao      : zhidao_wandao_bxcx(image_binarized,79,7);break;
-      case WanDao      : zhidao_wandao_bxcx(image_binarized,79,7);break;
-      case ShiZi       : shizi_bxcx(image_binarized);break;
-      case RuHuanXing  : huanxing_ru_bxcx(image_binarized);break;//入环形补线程序
-      case ChuHuanXing : huanxing_chu_bxcx(image_binarized);break;//入环形补线程序
-      default          : zhidao_wandao_bxcx(image_binarized,79,7);
-    }
-    
-    SaiDaoLeiXing_Last = SaiDaoLeiXing;
+//    SaiDaoLeiXing =     
+    pdsdlx(image_binarized);
+//    
+//    extern uint8 flg_msycsz;               //十字补线程序
+//    if( (SaiDaoLeiXing==ShiZi)&&(SaiDaoLeiXing!=SaiDaoLeiXing_Last) )
+//    {
+//      flg_msycsz=0;
+//    }
+//    
+//    switch( SaiDaoLeiXing )
+//    {
+//      case ZhiDao      : zhidao_wandao_bxcx(image_binarized,79,7);break;
+//      case WanDao      : zhidao_wandao_bxcx(image_binarized,79,7);break;
+//      case ShiZi       : shizi_bxcx(image_binarized);break;
+//      case RuHuanXing  : huanxing_ru_bxcx(image_binarized);break;//入环形补线程序
+//      case ChuHuanXing : huanxing_chu_bxcx(image_binarized);break;//入环形补线程序
+//      default          : zhidao_wandao_bxcx(image_binarized,79,7);
+//    }
+//    
+//    SaiDaoLeiXing_Last = SaiDaoLeiXing;
 //    /***************提取中线算法结束***************/
     
     /***************test code***************/
@@ -118,39 +119,39 @@ void main()
     //从补线后的图像中扫描中线值 用于打方向
     f__midline(image_binarized[QianZhan],1,60,&midline_flag,&midline_value);
     
-    //画指示线
-    Site_t site_czx;
-    Site_t site_spx;
-    site_czx.x=(uint8)(   ( (float)midline_value )/188.0*128.0   );//画垂直线中线
-    for(uint8 i_hx=0;i_hx<128;i_hx++)
-    {
-      site_czx.y=i_hx;
-      LCD_point(site_czx,RED);//画垂直线中线
-      
-      site_spx.x=i_hx;
-      site_spx.y=(uint8)(   ( (float)QianZhan )/80.0*128.0   );//画水平线
-      LCD_point(site_spx,RED);
-    }
+//    //画指示线
+//    Site_t site_czx;
+//    Site_t site_spx;
+//    site_czx.x=(uint8)(   ( (float)midline_value )/188.0*128.0   );//画垂直线中线
+//    for(uint8 i_hx=0;i_hx<128;i_hx++)
+//    {
+//      site_czx.y=i_hx;
+//      LCD_point(site_czx,RED);//画垂直线中线
+//      
+//      site_spx.x=i_hx;
+//      site_spx.y=(uint8)(   ( (float)QianZhan )/80.0*128.0   );//画水平线
+//      LCD_point(site_spx,RED);
+//    }
     
-    //画出最中间两列线（93 94）
-    Site_t site_zzjczx_l;//最中间垂直线l 93
-    Site_t site_zzjczx_r;//最中间垂直线r 94
-    site_zzjczx_l.x=(uint8)( 93.0/188.0*128.0 );//画垂直线中线l 93
-    site_zzjczx_r.x=(uint8)( 94.0/188.0*128.0 );//画垂直线中线r 94
-    for(uint8 i_hx=0;i_hx<128;i_hx++)
-    {
-      site_zzjczx_l.y=i_hx;
-      LCD_point(site_zzjczx_l,GREEN);//画垂直线中线l 93
-      site_zzjczx_r.y=i_hx;
-      LCD_point(site_zzjczx_r,GREEN);//画垂直线中线r 94
-    }
+//    //画出最中间两列线（93 94）
+//    Site_t site_zzjczx_l;//最中间垂直线l 93
+//    Site_t site_zzjczx_r;//最中间垂直线r 94
+//    site_zzjczx_l.x=(uint8)( 93.0/188.0*128.0 );//画垂直线中线l 93
+//    site_zzjczx_r.x=(uint8)( 94.0/188.0*128.0 );//画垂直线中线r 94
+//    for(uint8 i_hx=0;i_hx<128;i_hx++)
+//    {
+//      site_zzjczx_l.y=i_hx;
+//      LCD_point(site_zzjczx_l,GREEN);//画垂直线中线l 93
+//      site_zzjczx_r.y=i_hx;
+//      LCD_point(site_zzjczx_r,GREEN);//画垂直线中线r 94
+//    }
     
     //输出图像
     LCD_Img_gray_Z(imgsite,lcdsize,(uint8*)image_binarized,imgsize);//LCD显示灰度图像
 //    vcan_sendimg(image_binarized,IMG_H_USED*IMG_W_USED);            //山外上位机发送灰度图像
 //    seekfree_sendimg_zzf(image_binarized,IMG_H_USED*IMG_W_USED);    //逐飞上位机发送灰度图像
     
-    //LCD显示相关数据
+//    //LCD显示相关数据
 //    Site_t site_lcd_display;
 //    site_lcd_display.y=0+0;
 //    site_lcd_display.x=0;
@@ -214,7 +215,7 @@ void PIT0_ISR()
   }
   else
   {
-    car_speed=220;
+    car_speed=140;
   }
   Car_Control(midline_value,95,car_speed);//MeasuredDir TargetDir TargetSpeed
 }

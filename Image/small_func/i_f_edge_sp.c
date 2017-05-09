@@ -100,7 +100,7 @@ void f__edge_sp_czj_plus(uint8 line[],uint8 range,uint8 *flag_l,uint8 *left,uint
   uint8 X_start_j;
   uint8 X_final_j;
   
-  #define DEVIATION 20
+  #define DEVIATION 30
   S_start_j = 93+DEVIATION;//从右往左扫 tmpj--
   S_final_j = 93-range;    //range==93 时为 0
   X_start_j = 94-DEVIATION;//从左往右扫 tmpj++

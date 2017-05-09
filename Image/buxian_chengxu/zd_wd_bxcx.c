@@ -98,6 +98,12 @@ void zhidao_wandao_bxcx(uint8 img_bin[][IMG_W_USED],uint8 bx_start_i,uint8 bx_ra
     
   }
   
+  
+
+  
+  
+  
+  
   //取10个均匀的中间点
   mid_point[0]  = zhong_dian_img( bj_left[ 0*n_bj_l/7 ],bj_right[ 0*n_bj_r/7 ] );
   mid_point[1]  = zhong_dian_img( bj_left[ 1*n_bj_l/7 -1],bj_right[ 1*n_bj_r/7 -1] );
